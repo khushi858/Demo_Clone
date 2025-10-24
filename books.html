@@ -1,0 +1,2608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoho Books - Online Accounting Software for Small Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+      /* Advanced Gradient Backgrounds */
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          #1a73e8 0%,
+          #4285f4 25%,
+          #34a853 50%,
+          #ea4335 75%,
+          #fbbc04 100%
+        );
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Sophisticated Card Animations */
+      .feature-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .feature-card:hover::before {
+        left: 100%;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-15px) rotateX(5deg);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Advanced Navigation */
+      .nav-item {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-item::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: -8px;
+        left: 50%;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .nav-item:hover::after {
+        width: 100%;
+        left: 0;
+      }
+
+      /* Morphing Buttons */
+      .btn-primary {
+        background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d;
+      }
+
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 15px 35px rgba(26, 115, 232, 0.4);
+      }
+
+      .btn-primary:hover::before {
+        left: 100%;
+      }
+
+      /* Interactive Dashboard */
+      .hero-dashboard {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.5s ease;
+      }
+
+      .hero-dashboard:hover {
+        transform: rotateY(5deg) rotateX(5deg);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Floating Animation System */
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .floating-element {
+        position: absolute;
+        opacity: 0.6;
+        animation: complexFloat 8s ease-in-out infinite;
+      }
+
+      @keyframes complexFloat {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+        }
+        25% {
+          transform: translateY(-30px) translateX(15px) rotate(90deg) scale(1.1);
+        }
+        50% {
+          transform: translateY(-20px) translateX(-10px) rotate(180deg)
+            scale(0.9);
+        }
+        75% {
+          transform: translateY(-40px) translateX(20px) rotate(270deg)
+            scale(1.05);
+        }
+      }
+
+      /* Advanced Stats Animation */
+      .stats-container {
+        perspective: 1000px;
+      }
+
+      .stats-card {
+        transition: all 0.5s ease;
+        transform-style: preserve-3d;
+      }
+
+      .stats-card:hover {
+        transform: rotateY(10deg) translateZ(20px);
+      }
+
+      .stats-number {
+        font-size: 4rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #1a73e8, #34a853, #ea4335);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Testimonial Cards with 3D Effect */
+      .testimonial-card {
+        transition: all 0.4s ease;
+        transform-style: preserve-3d;
+        position: relative;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Pricing Cards with Glow Effect */
+      .pricing-card {
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+          from 0deg,
+          transparent,
+          rgba(102, 126, 234, 0.3),
+          transparent
+        );
+        animation: rotate 4s linear infinite;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .pricing-card:hover::after {
+        opacity: 1;
+      }
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .pricing-popular {
+        background: linear-gradient(
+          135deg,
+          #1a73e8 0%,
+          #4285f4 50%,
+          #34a853 100%
+        );
+        animation: gradientShift 10s ease infinite;
+      }
+
+      /* Interactive Integration Logos */
+      .integration-logo {
+        filter: grayscale(100%) brightness(0.7);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        position: relative;
+      }
+
+      .integration-logo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(102, 126, 234, 0.1),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .integration-logo:hover {
+        filter: grayscale(0%) brightness(1);
+        transform: scale(1.1) translateY(-5px);
+      }
+
+      .integration-logo:hover::before {
+        opacity: 1;
+      }
+
+      /* Advanced Loading Animation */
+      .loading-bar {
+        width: 0%;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        background-size: 400% 100%;
+        animation: loadingGradient 2s ease-out, loadingWidth 2s ease-out;
+      }
+
+      @keyframes loadingGradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes loadingWidth {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+
+      /* Sophisticated Dropdown */
+      .dropdown {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px) scale(0.95);
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .dropdown-parent:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      /* Scroll-triggered Animations */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Interactive Background Particles */
+      .particle {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: particleFloat 6s ease-in-out infinite;
+      }
+
+      @keyframes particleFloat {
+        0%,
+        100% {
+          transform: translateY(0px) scale(1);
+          opacity: 0.1;
+        }
+        50% {
+          transform: translateY(-100px) scale(1.2);
+          opacity: 0.3;
+        }
+      }
+
+      /* Advanced Form Styling */
+      .form-input {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .form-input:focus {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      /* Pulse Animation for CTAs */
+      .pulse-glow {
+        animation: pulseGlow 2s ease-in-out infinite;
+      }
+
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
+        }
+      }
+
+      /* Text Gradient Animation */
+      .gradient-text {
+        background: linear-gradient(135deg, #1a73e8, #34a853, #ea4335);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientText 3s ease infinite;
+      }
+
+      @keyframes gradientText {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* Interactive Progress Bars */
+      .progress-bar {
+        background: linear-gradient(90deg, #1a73e8, #34a853);
+        transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .progress-bar::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: shimmer 2s ease-in-out infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white overflow-x-hidden">
+    <!-- Advanced Loading Bar -->
+    <div class="fixed top-0 left-0 w-full z-50">
+      <div class="loading-bar" id="loadingBar"></div>
+    </div>
+
+    <!-- Floating Particles Background -->
+    <div
+      class="fixed inset-0 pointer-events-none z-0"
+      id="particleContainer"
+    ></div>
+
+    <!-- Enhanced Top Bar -->
+    <div
+      class="bg-gradient-to-r from-gray-50 to-gray-100 text-sm py-3 relative overflow-hidden"
+    >
+      <div class="floating-elements">
+        <div
+          class="floating-element text-blue-300 text-xl"
+          style="left: 5%; top: 10%"
+        >
+          💼
+        </div>
+        <div
+          class="floating-element text-purple-300 text-xl"
+          style="right: 8%; top: 20%"
+        >
+          📊
+        </div>
+        <div
+          class="floating-element text-pink-300 text-lg"
+          style="left: 15%; bottom: 10%"
+        >
+          ✨
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-4 flex justify-between items-center relative z-10"
+      >
+        <div class="flex space-x-8">
+          <div
+            class="flex items-center space-x-2 cursor-pointer hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
+          >
+            <span class="text-lg">🇮🇳</span>
+            <span class="font-medium">India</span>
+            <span
+              class="text-xs transform transition-transform hover:rotate-180"
+              >▼</span
+            >
+          </div>
+          <div
+            class="flex items-center space-x-2 cursor-pointer hover:text-purple-600 transition-all duration-300 transform hover:scale-105"
+          >
+            <span class="font-medium">English</span>
+            <span
+              class="text-xs transform transition-transform hover:rotate-180"
+              >▼</span
+            >
+          </div>
+        </div>
+        <div class="flex space-x-8">
+          <a
+            href="#"
+            class="text-gray-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-105 font-medium"
+            >Support</a
+          >
+          <a
+            href="#"
+            class="text-gray-600 hover:text-purple-600 transition-all duration-300 transform hover:scale-105 font-medium"
+            >Contact</a
+          >
+          <a
+            href="#"
+            class="text-gray-600 hover:text-pink-600 transition-all duration-300 transform hover:scale-105 font-medium"
+            >Training</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <nav
+      class="bg-white/90 backdrop-blur-lg shadow-xl sticky top-0 z-40 border-b border-gray-100"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo and Navigation -->
+          <div class="flex items-center space-x-12">
+            <!-- Logo -->
+            <div
+              class="text-3xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent cursor-pointer hover:scale-110 transition-transform duration-300"
+            >
+              zolytics
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex space-x-10">
+              <!-- Products Dropdown -->
+              <div class="dropdown-parent relative">
+                <a
+                  href="#"
+                  class="nav-item text-gray-700 px-4 py-3 font-semibold flex items-center text-lg group"
+                >
+                  Products
+                  <span
+                    class="ml-2 text-sm transform transition-transform group-hover:rotate-180"
+                    >▼</span
+                  >
+                </a>
+                <div
+                  class="dropdown absolute top-full left-0 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl p-8 w-96 border border-gray-100"
+                >
+                  <div class="grid grid-cols-2 gap-6">
+                    <!-- Analytics -->
+                    <a
+                      href="#"
+                      class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-teal-50 hover:to-blue-50 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div
+                        class="w-12 h-12 bg-gradient-to-br from-teal-400 to-blue-500 rounded-xl flex items-center justify-center mr-4 shadow-lg"
+                      >
+                        📊
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-800 text-lg">
+                          Analytics
+                        </div>
+                        <div class="text-sm text-gray-600">
+                          Insights & Reports
+                        </div>
+                      </div>
+                    </a>
+                    <!-- Books -->
+                    <a
+                      href="#"
+                      class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div
+                        class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-lg"
+                      >
+                        📚
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-800 text-lg">Books</div>
+                        <div class="text-sm text-gray-600">Accounting</div>
+                      </div>
+                    </a>
+                    <!-- Commerce -->
+                    <a
+                      href="#"
+                      class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div
+                        class="w-12 h-12 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-xl flex items-center justify-center mr-4 shadow-lg"
+                      >
+                        🛒
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-800 text-lg">
+                          Commerce
+                        </div>
+                        <div class="text-sm text-gray-600">Online Store</div>
+                      </div>
+                    </a>
+                    <!-- CRM -->
+                    <a
+                      href="#"
+                      class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div
+                        class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-xl flex items-center justify-center mr-4 shadow-lg"
+                      >
+                        🤝
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-800 text-lg">CRM</div>
+                        <div class="text-sm text-gray-600">
+                          Customer Relations
+                        </div>
+                      </div>
+                    </a>
+                    <!-- Expense -->
+                    <a
+                      href="#"
+                      class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div
+                        class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center mr-4 shadow-lg"
+                      >
+                        💰
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-800 text-lg">
+                          Expense
+                        </div>
+                        <div class="text-sm text-gray-600">Tracking</div>
+                      </div>
+                    </a>
+                    <!-- Inventory -->
+                    <a
+                      href="#"
+                      class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div
+                        class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mr-4 shadow-lg"
+                      >
+                        📦
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-800 text-lg">
+                          Inventory
+                        </div>
+                        <div class="text-sm text-gray-600">Management</div>
+                      </div>
+                    </a>
+                    <!-- Payroll -->
+                    <a
+                      href="#"
+                      class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div
+                        class="w-12 h-12 bg-gradient-to-br from-rose-400 to-pink-500 rounded-xl flex items-center justify-center mr-4 shadow-lg"
+                      >
+                        💼
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-800 text-lg">
+                          Payroll
+                        </div>
+                        <div class="text-sm text-gray-600">
+                          Salary Management
+                        </div>
+                      </div>
+                    </a>
+                    <!-- People -->
+                    <a
+                      href="#"
+                      class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-sky-50 hover:to-cyan-50 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div
+                        class="w-12 h-12 bg-gradient-to-br from-sky-400 to-cyan-500 rounded-xl flex items-center justify-center mr-4 shadow-lg"
+                      >
+                        👥
+                      </div>
+                      <div>
+                        <div class="font-bold text-gray-800 text-lg">
+                          People
+                        </div>
+                        <div class="text-sm text-gray-600">HR Management</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- New Navigation Links -->
+              <a
+                href="#"
+                class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg hover:text-blue-600 transition-colors"
+                >Partner</a
+              >
+              <a
+                href="#"
+                class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg hover:text-blue-600 transition-colors"
+                >Certification</a
+              >
+              <a
+                href="#"
+                class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg hover:text-blue-600 transition-colors"
+                >Training</a
+              >
+              <a
+                href="#"
+                class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg hover:text-blue-600 transition-colors"
+                >Integration</a
+              >
+              <a
+                href="#"
+                class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg hover:text-blue-600 transition-colors"
+                >Client</a
+              >
+            </div>
+          </div>
+
+          <!-- Sign In / Sign Up on same line -->
+          <div class="flex items-center space-x-4">
+            <a
+              href="#"
+              class="text-gray-700 font-semibold hover:text-blue-600 transition-colors"
+              >Sign In</a
+            >
+            <button
+              class="btn-primary text-white px-6 py-2 rounded-xl font-bold hover:scale-105 transition-transform duration-300"
+            >
+              Sign Up Free
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+     <!-- Enhanced Mobile Menu -->
+      <div
+        class="mobile-menu fixed top-0 right-0 w-96 h-full bg-white/95 backdrop-blur-lg shadow-2xl z-50 p-8"
+        id="mobileMenu"
+      >
+        <div class="flex justify-between items-center mb-10">
+          <div
+            class="text-3xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent"
+          >
+            zoho
+          </div>
+          <button
+            class="text-gray-500 text-3xl hover:text-red-500 transition-colors"
+            id="closeMobileMenu"
+          >
+            ×
+          </button>
+        </div>
+        <div class="space-y-6">
+          <a
+            href="#"
+            class="block py-4 text-gray-700 hover:text-blue-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
+            >Products</a
+          >
+          <a
+            href="#pricing"
+            class="block py-4 text-gray-700 hover:text-purple-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
+            >Pricing</a
+          >
+          <a
+            href="#"
+            class="block py-4 text-gray-700 hover:text-pink-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
+            >Resources</a
+          >
+          <a
+            href="#"
+            class="block py-4 text-gray-700 hover:text-green-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
+            >Customers</a
+          >
+          <a
+            href="#"
+            class="block py-4 text-gray-700 hover:text-orange-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
+            >Partners</a
+          >
+          <div class="pt-6 border-t border-gray-200">
+            <a
+              href="#"
+              class="block py-4 text-gray-700 hover:text-blue-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
+              >Sign In</a
+            >
+            <button
+              class="btn-primary text-white px-8 py-4 rounded-xl font-bold w-full mt-4 text-lg"
+            >
+              Sign Up Free
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+   <!-- Hero Section -->
+<section class="relative overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white">
+  <!-- Floating Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="floating-element text-6xl" style="left:3%; top:10%">📊</div>
+    <div class="floating-element text-5xl" style="right:5%; top:15%">💼</div>
+    <div class="floating-element text-4xl" style="left:10%; bottom:20%">📈</div>
+    <div class="floating-element text-5xl" style="right:15%; bottom:10%">💰</div>
+    <div class="floating-element text-3xl" style="left:25%; top:30%">✨</div>
+    <div class="floating-element text-4xl" style="right:30%; top:40%">🚀</div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Text -->
+      <div class="scroll-reveal space-y-6">
+        <h1 class="text-5xl md:text-7xl font-black leading-tight">
+          Comprehensive accounting platform for
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500 block mt-2">small business</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-white/80">
+          Manage your finances, automate workflows, and make smarter decisions with Zoho Books.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-6">
+          <button class="bg-white text-blue-700 px-8 py-4 rounded-2xl font-bold shadow-lg hover:scale-105 transition-transform duration-300">
+            Start Free Trial
+          </button>
+          <button class="border-2 border-white/50 bg-white/20 px-8 py-4 rounded-2xl font-bold text-white hover:bg-white/30 hover:scale-105 transition-all duration-300">
+            Watch Demo
+          </button>
+        </div>
+      </div>
+
+      <!-- Dashboard Preview -->
+      <div class="scroll-reveal">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-700">
+          <div class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-6">
+            <h3 class="text-white font-bold text-2xl">Dashboard Overview</h3>
+            <p class="text-blue-100 mt-1">Real-time financial insights</p>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex justify-between items-center p-4 bg-green-50 rounded-xl border border-green-200">
+              <span class="font-semibold text-gray-800">Total Revenue</span>
+              <span class="text-green-600 font-bold text-xl">₹0</span>
+            </div>
+            <div class="flex justify-between items-center p-4 bg-orange-50 rounded-xl border border-orange-200">
+              <span class="font-semibold text-gray-800">Outstanding</span>
+              <span class="text-orange-600 font-bold text-xl">₹0</span>
+            </div>
+            <div class="flex justify-between items-center p-4 bg-red-50 rounded-xl border border-red-200">
+              <span class="font-semibold text-gray-800">Expenses</span>
+              <span class="text-red-600 font-bold text-xl">₹0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Floating Animation -->
+<style>
+.floating-element {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Scroll Reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: reveal 1s forwards;
+}
+.scroll-reveal:nth-child(1) { animation-delay: 0.2s; }
+.scroll-reveal:nth-child(2) { animation-delay: 0.4s; }
+
+@keyframes reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+
+    <!-- Enhanced Stats Section -->
+    <section
+      class="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-24 relative stats-container"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
+          <div
+            class="stats-card scroll-reveal bg-white p-8 rounded-3xl shadow-xl border border-gray-100"
+          >
+            <div class="stats-number" id="customers">0</div>
+            <p class="text-gray-700 font-bold text-xl mt-4">Happy Customers</p>
+            <div
+              class="w-20 h-2 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mt-4 rounded-full"
+            ></div>
+          </div>
+          <div
+            class="stats-card scroll-reveal bg-white p-8 rounded-3xl shadow-xl border border-gray-100"
+            style="animation-delay: 0.2s"
+          >
+            <div class="stats-number" id="countries">0</div>
+            <p class="text-gray-700 font-bold text-xl mt-4">Countries</p>
+            <div
+              class="w-20 h-2 bg-gradient-to-r from-green-400 to-emerald-500 mx-auto mt-4 rounded-full"
+            ></div>
+          </div>
+          <div
+            class="stats-card scroll-reveal bg-white p-8 rounded-3xl shadow-xl border border-gray-100"
+            style="animation-delay: 0.4s"
+          >
+            <div class="stats-number" id="invoices">0</div>
+            <p class="text-gray-700 font-bold text-xl mt-4">Invoices Sent</p>
+            <div
+              class="w-20 h-2 bg-gradient-to-r from-orange-400 to-red-500 mx-auto mt-4 rounded-full"
+            ></div>
+          </div>
+          <div
+            class="stats-card scroll-reveal bg-white p-8 rounded-3xl shadow-xl border border-gray-100"
+            style="animation-delay: 0.6s"
+          >
+            <div class="stats-number" id="transactions">0</div>
+            <p class="text-gray-700 font-bold text-xl mt-4">
+              Transactions Processed
+            </p>
+            <div
+              class="w-20 h-2 bg-gradient-to-r from-purple-400 to-pink-500 mx-auto mt-4 rounded-full"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Revolutionary Features Section -->
+    <section class="py-32 relative overflow-hidden" id="features">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center mb-20 scroll-reveal">
+          <h2 class="text-6xl font-black text-gray-800 mb-6">
+            Everything you need to run your business
+          </h2>
+          <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            From invoicing and expense tracking to inventory management and
+            financial reporting, Zoho Books has all the tools you need.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div
+            class="feature-card bg-white p-10 rounded-3xl shadow-xl border border-gray-100 scroll-reveal"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mb-8 transform hover:rotate-12 transition-transform duration-300 shadow-lg"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
+                <path
+                  fill-rule="evenodd"
+                  d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">
+              Online Invoicing
+            </h3>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Create professional invoices, send them online, and get paid
+              faster with integrated payment gateways.
+            </p>
+            <a
+              href="#"
+              class="text-blue-600 font-bold hover:text-blue-800 transition-colors text-lg"
+              >Learn more →</a
+            >
+          </div>
+
+          <div
+            class="feature-card bg-white p-10 rounded-3xl shadow-xl border border-gray-100 scroll-reveal"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mb-8 transform hover:rotate-12 transition-transform duration-300 shadow-lg"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"
+                ></path>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">
+              Expense Management
+            </h3>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Track expenses, scan receipts, and categorize spending to keep
+              your finances organized.
+            </p>
+            <a
+              href="#"
+              class="text-green-600 font-bold hover:text-green-800 transition-colors text-lg"
+              >Learn more →</a
+            >
+          </div>
+
+          <div
+            class="feature-card bg-white p-10 rounded-3xl shadow-xl border border-gray-100 scroll-reveal"
+            style="animation-delay: 0.2s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mb-8 transform hover:rotate-12 transition-transform duration-300 shadow-lg"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">
+              Financial Reports
+            </h3>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Generate detailed financial reports including P&L, balance sheet,
+              and cash flow statements.
+            </p>
+            <a
+              href="#"
+              class="text-purple-600 font-bold hover:text-purple-800 transition-colors text-lg"
+              >Learn more →</a
+            >
+          </div>
+
+          <div
+            class="feature-card bg-white p-10 rounded-3xl shadow-xl border border-gray-100 scroll-reveal"
+            style="animation-delay: 0.3s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mb-8 transform hover:rotate-12 transition-transform duration-300 shadow-lg"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 1a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm4-4a1 1 0 100 2h.01a1 1 0 100-2H13zM9 9a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zM7 8a1 1 0 000 2h.01a1 1 0 000-2H7z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">
+              Inventory Management
+            </h3>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Track stock levels, manage purchase orders, and automate inventory
+              workflows.
+            </p>
+            <a
+              href="#"
+              class="text-orange-600 font-bold hover:text-orange-800 transition-colors text-lg"
+              >Learn more →</a
+            >
+          </div>
+
+          <div
+            class="feature-card bg-white p-10 rounded-3xl shadow-xl border border-gray-100 scroll-reveal"
+            style="animation-delay: 0.4s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl flex items-center justify-center mb-8 transform hover:rotate-12 transition-transform duration-300 shadow-lg"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">
+              Bank Reconciliation
+            </h3>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Connect your bank accounts and automatically match transactions to
+              keep books accurate.
+            </p>
+            <a
+              href="#"
+              class="text-red-600 font-bold hover:text-red-800 transition-colors text-lg"
+              >Learn more →</a
+            >
+          </div>
+
+          <div
+            class="feature-card bg-white p-10 rounded-3xl shadow-xl border border-gray-100 scroll-reveal"
+            style="animation-delay: 0.5s"
+          >
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-2xl flex items-center justify-center mb-8 transform hover:rotate-12 transition-transform duration-300 shadow-lg"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">
+              Multi-Platform Access
+            </h3>
+            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+              Access your accounting data from anywhere with web, mobile, and
+              desktop applications.
+            </p>
+            <a
+              href="#"
+              class="text-indigo-600 font-bold hover:text-indigo-800 transition-colors text-lg"
+              >Learn more →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Demo Video Section -->
+    <section
+      class="py-32 bg-gradient-to-br from-blue-50 via-white to-green-50 relative overflow-hidden"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20 scroll-reveal">
+          <h2 class="text-6xl font-black text-gray-800 mb-6">
+            See Zoho Books in action
+          </h2>
+          <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Watch how businesses like yours are transforming their accounting
+            with Zoho Books
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="scroll-reveal">
+            <div
+              class="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200"
+            >
+              <div
+                class="aspect-video bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center relative"
+              >
+                <div class="absolute inset-0 bg-black/20"></div>
+                <button
+                  class="relative z-10 w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110 shadow-2xl"
+                  onclick="playDemoVideo(this)"
+                >
+                  <svg
+                    class="w-10 h-10 text-white ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"
+                    />
+                  </svg>
+                </button>
+                <div class="absolute bottom-6 left-6 text-white">
+                  <div class="text-2xl font-bold mb-2">Product Overview</div>
+                  <div class="text-blue-200">3:45 minutes</div>
+                </div>
+              </div>
+              <div class="p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                  Complete Accounting Solution
+                </h3>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                  Discover how Zoho Books streamlines invoicing, expense
+                  tracking, and financial reporting for businesses of all sizes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="scroll-reveal space-y-8">
+            <div
+              class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            >
+              <div class="flex items-start">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-6 shadow-lg"
+                >
+                  <svg
+                    class="w-8 h-8 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-2xl font-bold text-gray-800 mb-3">
+                    Automated Workflows
+                  </h4>
+                  <p class="text-gray-600 text-lg leading-relaxed">
+                    Set up recurring invoices, payment reminders, and expense
+                    approvals to save time and reduce manual work.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            >
+              <div class="flex items-start">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mr-6 shadow-lg"
+                >
+                  <svg
+                    class="w-8 h-8 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-2xl font-bold text-gray-800 mb-3">
+                    Real-time Reports
+                  </h4>
+                  <p class="text-gray-600 text-lg leading-relaxed">
+                    Get instant insights into your business performance with
+                    customizable dashboards and detailed financial reports.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            >
+              <div class="flex items-start">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mr-6 shadow-lg"
+                >
+                  <svg
+                    class="w-8 h-8 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-2xl font-bold text-gray-800 mb-3">
+                    Secure Payments
+                  </h4>
+                  <p class="text-gray-600 text-lg leading-relaxed">
+                    Accept online payments through multiple gateways with
+                    bank-level security and instant notifications.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Success Videos -->
+    <section
+      class="py-32 bg-gradient-to-br from-gray-50 via-blue-50 to-green-50 relative overflow-hidden"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-20 scroll-reveal">
+          <h2 class="text-6xl font-black text-gray-800 mb-6">
+            Customer success stories
+          </h2>
+          <p class="text-2xl text-gray-600 leading-relaxed">
+            Hear from businesses that have transformed their accounting with
+            Zoho Books
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div
+            class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200 scroll-reveal hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+          >
+            <div
+              class="aspect-video bg-gradient-to-br from-blue-600 to-blue-700 relative"
+            >
+              <div class="absolute inset-0 bg-black/20"></div>
+              <button
+                class="absolute inset-0 flex items-center justify-center hover:bg-black/10 transition-colors"
+                onclick="playTestimonialVideo(this, 'TechStart Solutions')"
+              >
+                <div
+                  class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+                >
+                  <svg
+                    class="w-6 h-6 text-white ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div class="absolute bottom-4 left-4 text-white">
+                <div class="text-sm font-semibold">2:30</div>
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                TechStart Solutions
+              </h3>
+              <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                "Zoho Books helped us scale from 10 to 100 employees while
+                keeping our finances organized and compliant."
+              </p>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4"
+                >
+                  <span class="text-white font-bold">RK</span>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800">Rajesh Kumar</div>
+                  <div class="text-gray-600">CEO</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200 scroll-reveal hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="aspect-video bg-gradient-to-br from-green-600 to-green-700 relative"
+            >
+              <div class="absolute inset-0 bg-black/20"></div>
+              <button
+                class="absolute inset-0 flex items-center justify-center hover:bg-black/10 transition-colors"
+                onclick="playTestimonialVideo(this, 'GreenLeaf Enterprises')"
+              >
+                <div
+                  class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+                >
+                  <svg
+                    class="w-6 h-6 text-white ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div class="absolute bottom-4 left-4 text-white">
+                <div class="text-sm font-semibold">3:15</div>
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                GreenLeaf Enterprises
+              </h3>
+              <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                "The automated reporting saved us 20 hours per month and gave us
+                insights we never had before."
+              </p>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-4"
+                >
+                  <span class="text-white font-bold">PS</span>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800">Priya Sharma</div>
+                  <div class="text-gray-600">CFO</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200 scroll-reveal hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            style="animation-delay: 0.2s"
+          >
+            <div
+              class="aspect-video bg-gradient-to-br from-purple-600 to-purple-700 relative"
+            >
+              <div class="absolute inset-0 bg-black/20"></div>
+              <button
+                class="absolute inset-0 flex items-center justify-center hover:bg-black/10 transition-colors"
+                onclick="playTestimonialVideo(this, 'Digital Craft Studio')"
+              >
+                <div
+                  class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110"
+                >
+                  <svg
+                    class="w-6 h-6 text-white ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div class="absolute bottom-4 left-4 text-white">
+                <div class="text-sm font-semibold">2:45</div>
+              </div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                Digital Craft Studio
+              </h3>
+              <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                "The mobile app lets me manage invoices and expenses on the go.
+                Perfect for our remote team."
+              </p>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-4"
+                >
+                  <span class="text-white font-bold">AM</span>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800">Arjun Mehta</div>
+                  <div class="text-gray-600">Founder</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Integrations Section -->
+    <section
+      class="bg-gradient-to-br from-gray-900 via-blue-900 to-green-900 py-32 relative overflow-hidden"
+    >
+      <div class="floating-elements">
+        <div
+          class="floating-element text-white text-4xl"
+          style="left: 5%; top: 20%"
+        >
+          🔗
+        </div>
+        <div
+          class="floating-element text-white text-3xl"
+          style="right: 8%; top: 30%"
+        >
+          ⚡
+        </div>
+        <div
+          class="floating-element text-white text-5xl"
+          style="left: 15%; bottom: 25%"
+        >
+          🌟
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center mb-20 scroll-reveal">
+          <h2 class="text-6xl font-black text-white mb-6">
+            Integrates with your favorite apps
+          </h2>
+          <p class="text-2xl text-blue-200 leading-relaxed">
+            Connect Zoho Books with 40+ business applications to streamline your
+            workflow.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
+          <div
+            class="integration-logo bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-xl flex items-center justify-center h-24 border border-white/20 scroll-reveal"
+          >
+            <div class="text-2xl font-bold text-blue-400">PayPal</div>
+          </div>
+          <div
+            class="integration-logo bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-xl flex items-center justify-center h-24 border border-white/20 scroll-reveal"
+            style="animation-delay: 0.1s"
+          >
+            <div class="text-2xl font-bold text-purple-400">Stripe</div>
+          </div>
+          <div
+            class="integration-logo bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-xl flex items-center justify-center h-24 border border-white/20 scroll-reveal"
+            style="animation-delay: 0.2s"
+          >
+            <div class="text-2xl font-bold text-green-400">QuickBooks</div>
+          </div>
+          <div
+            class="integration-logo bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-xl flex items-center justify-center h-24 border border-white/20 scroll-reveal"
+            style="animation-delay: 0.3s"
+          >
+            <div class="text-2xl font-bold text-orange-400">Shopify</div>
+          </div>
+          <div
+            class="integration-logo bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-xl flex items-center justify-center h-24 border border-white/20 scroll-reveal"
+            style="animation-delay: 0.4s"
+          >
+            <div class="text-2xl font-bold text-blue-300">Salesforce</div>
+          </div>
+          <div
+            class="integration-logo bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-xl flex items-center justify-center h-24 border border-white/20 scroll-reveal"
+            style="animation-delay: 0.5s"
+          >
+            <div class="text-2xl font-bold text-red-400">Gmail</div>
+          </div>
+        </div>
+
+        <div class="text-center scroll-reveal">
+          <button
+            class="bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white px-12 py-4 rounded-2xl font-bold text-xl hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+          >
+            View All Integrations
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Revolutionary Pricing Section -->
+    <section class="py-32 relative overflow-hidden" id="pricing">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center mb-20 scroll-reveal">
+          <h2 class="text-6xl font-black text-gray-800 mb-6">
+            Simple, transparent pricing
+          </h2>
+          <p class="text-2xl text-gray-600 mb-12 leading-relaxed">
+            Choose a plan that fits your business needs
+          </p>
+
+          <!-- Enhanced Pricing Toggle -->
+          <div class="flex items-center justify-center mb-12">
+            <span class="text-gray-700 mr-4 text-xl font-semibold"
+              >Monthly</span
+            >
+            <div class="relative">
+              <input type="checkbox" id="pricingToggle" class="sr-only" />
+              <label
+                for="pricingToggle"
+                class="flex items-center cursor-pointer"
+              >
+                <div
+                  class="w-16 h-9 bg-gray-300 rounded-full shadow-inner transition-colors duration-300"
+                ></div>
+                <div
+                  class="absolute left-1 top-1 w-7 h-7 bg-white rounded-full shadow transition-transform duration-300"
+                ></div>
+              </label>
+            </div>
+            <span class="text-gray-700 ml-4 text-xl font-semibold">Yearly</span>
+            <span
+              class="ml-3 bg-gradient-to-r from-green-400 to-emerald-500 text-white text-sm px-4 py-2 rounded-full font-bold shadow-lg"
+              >Save 20%</span
+            >
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div
+            class="pricing-card bg-white p-10 rounded-3xl shadow-xl border-2 border-gray-200 scroll-reveal"
+          >
+            <div class="text-center mb-10">
+              <h3 class="text-3xl font-black text-gray-800 mb-6">Free</h3>
+              <div class="text-6xl font-black text-blue-600 mb-4">
+                <span class="monthly-price">₹0</span>
+                <span class="yearly-price hidden">₹0</span>
+              </div>
+              <p class="text-gray-600 text-lg">
+                <span class="monthly-price">per month</span>
+                <span class="yearly-price hidden">per year</span>
+              </p>
+            </div>
+            <ul class="space-y-5 mb-10">
+              <li class="flex items-center">
+                <span class="text-green-500 mr-4 text-2xl">✓</span>
+                <span class="text-lg">1 User</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-4 text-2xl">✓</span>
+                <span class="text-lg">1,000 Invoices/year</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Basic Reports</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Email Support</span>
+              </li>
+            </ul>
+            <button
+              class="w-full bg-gray-100 text-gray-800 py-5 rounded-2xl font-bold text-xl hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+            >
+              Get Started Free
+            </button>
+          </div>
+
+          <div
+            class="pricing-card pricing-popular text-white p-10 rounded-3xl shadow-2xl border-2 border-blue-500 relative transform scale-110 scroll-reveal"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-400 to-red-500 text-white px-8 py-3 rounded-full text-lg font-black shadow-xl"
+            >
+              Most Popular
+            </div>
+            <div class="text-center mb-10">
+              <h3 class="text-3xl font-black mb-6">Standard</h3>
+              <div class="text-6xl font-black mb-4">
+                <span class="monthly-price">₹1,200</span>
+                <span class="yearly-price hidden">₹11,520</span>
+              </div>
+              <p class="text-blue-200 text-lg">
+                <span class="monthly-price">per month</span>
+                <span class="yearly-price hidden">per year</span>
+              </p>
+            </div>
+            <ul class="space-y-5 mb-10">
+              <li class="flex items-center">
+                <span class="text-green-400 mr-4 text-2xl">✓</span>
+                <span class="text-lg">3 Users</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-400 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Unlimited Invoices</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-400 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Advanced Reports</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-400 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Inventory Management</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-400 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Priority Support</span>
+              </li>
+            </ul>
+            <button
+              class="w-full bg-white text-blue-600 py-5 rounded-2xl font-black text-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Start Free Trial
+            </button>
+          </div>
+
+          <div
+            class="pricing-card bg-white p-10 rounded-3xl shadow-xl border-2 border-gray-200 scroll-reveal"
+            style="animation-delay: 0.2s"
+          >
+            <div class="text-center mb-10">
+              <h3 class="text-3xl font-black text-gray-800 mb-6">
+                Professional
+              </h3>
+              <div class="text-6xl font-black text-blue-600 mb-4">
+                <span class="monthly-price">₹2,400</span>
+                <span class="yearly-price hidden">₹23,040</span>
+              </div>
+              <p class="text-gray-600 text-lg">
+                <span class="monthly-price">per month</span>
+                <span class="yearly-price hidden">per year</span>
+              </p>
+            </div>
+            <ul class="space-y-5 mb-10">
+              <li class="flex items-center">
+                <span class="text-green-500 mr-4 text-2xl">✓</span>
+                <span class="text-lg">10 Users</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Everything in Standard</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Custom Fields</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Workflow Automation</span>
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-4 text-2xl">✓</span>
+                <span class="text-lg">Phone Support</span>
+              </li>
+            </ul>
+            <button
+              class="w-full bg-gray-100 text-gray-800 py-5 rounded-2xl font-bold text-xl hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+            >
+              Start Free Trial
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Testimonials Section -->
+    <section
+      class="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 py-32 relative overflow-hidden"
+    >
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center mb-20 scroll-reveal">
+          <h2 class="text-6xl font-black text-white mb-6">
+            Trusted by businesses worldwide
+          </h2>
+          <p class="text-2xl text-blue-200 leading-relaxed">
+            See what our customers have to say about Zoho Books
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div
+            class="testimonial-card bg-white/10 backdrop-blur-lg p-10 rounded-3xl shadow-2xl border border-white/20 scroll-reveal"
+          >
+            <div class="flex items-center mb-8">
+              <div class="flex text-yellow-400 text-2xl">★★★★★</div>
+              <span class="ml-3 text-white font-bold text-xl">5.0</span>
+            </div>
+            <p class="text-white mb-8 text-xl leading-relaxed">
+              "Zoho Books has transformed how we manage our finances. The
+              automation features save us hours every week, and the reports give
+              us insights we never had before."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-5 shadow-lg"
+              >
+                <span class="text-white font-bold text-xl">RK</span>
+              </div>
+              <div>
+                <div class="font-bold text-white text-xl">Rajesh Kumar</div>
+                <div class="text-blue-200 text-lg">
+                  CEO, TechStart Solutions
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="testimonial-card bg-white/10 backdrop-blur-lg p-10 rounded-3xl shadow-2xl border border-white/20 scroll-reveal"
+            style="animation-delay: 0.1s"
+          >
+            <div class="flex items-center mb-8">
+              <div class="flex text-yellow-400 text-2xl">★★★★★</div>
+              <span class="ml-3 text-white font-bold text-xl">5.0</span>
+            </div>
+            <p class="text-white mb-8 text-xl leading-relaxed">
+              "The reporting features are incredible. We now have complete
+              visibility into our financial health and can make data-driven
+              decisions with confidence."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mr-5 shadow-lg"
+              >
+                <span class="text-white font-bold text-xl">PS</span>
+              </div>
+              <div>
+                <div class="font-bold text-white text-xl">Priya Sharma</div>
+                <div class="text-blue-200 text-lg">
+                  CFO, GreenLeaf Enterprises
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="testimonial-card bg-white/10 backdrop-blur-lg p-10 rounded-3xl shadow-2xl border border-white/20 scroll-reveal"
+            style="animation-delay: 0.2s"
+          >
+            <div class="flex items-center mb-8">
+              <div class="flex text-yellow-400 text-2xl">★★★★★</div>
+              <span class="ml-3 text-white font-bold text-xl">5.0</span>
+            </div>
+            <p class="text-white mb-8 text-xl leading-relaxed">
+              "Easy to use, powerful features, and excellent customer support.
+              The mobile app lets me manage my business finances on the go.
+              Highly recommended!"
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mr-5 shadow-lg"
+              >
+                <span class="text-white font-bold text-xl">AM</span>
+              </div>
+              <div>
+                <div class="font-bold text-white text-xl">Arjun Mehta</div>
+                <div class="text-blue-200 text-lg">
+                  Founder, Digital Craft Studio
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Revolutionary CTA Section -->
+    <section class="hero-gradient text-white py-32 relative overflow-hidden">
+      <div class="floating-elements">
+        <div
+          class="floating-element text-white text-5xl"
+          style="left: 5%; top: 15%"
+        >
+          🚀
+        </div>
+        <div
+          class="floating-element text-white text-4xl"
+          style="right: 8%; top: 25%"
+        >
+          💡
+        </div>
+        <div
+          class="floating-element text-white text-6xl"
+          style="left: 15%; bottom: 20%"
+        >
+          ⭐
+        </div>
+        <div
+          class="floating-element text-white text-3xl"
+          style="right: 20%; bottom: 30%"
+        >
+          ✨
+        </div>
+      </div>
+      <div
+        class="max-w-5xl mx-auto text-center px-4 relative z-10 scroll-reveal"
+      >
+        <h2 class="text-7xl font-black mb-8 leading-tight">
+          Ready to simplify your accounting?
+        </h2>
+        <p class="text-2xl mb-12 text-blue-100 leading-relaxed font-light">
+          Join millions of businesses that trust Zoho Books for their financial
+          management. Start your free trial today and experience the difference.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-8 justify-center items-center mb-12"
+        >
+          <button
+            class="btn-primary text-white px-16 py-6 rounded-2xl text-2xl font-black pulse-glow"
+            id="ctaTrialBtn"
+          >
+            Start Your Free Trial
+          </button>
+          <button
+            class="bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white px-16 py-6 rounded-2xl text-2xl font-black hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+          >
+            Schedule Demo
+          </button>
+        </div>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-12 text-blue-200 text-xl"
+        >
+          <div class="flex items-center">
+            <span class="text-green-400 mr-3 text-3xl">✓</span>
+            14-day free trial
+          </div>
+          <div class="flex items-center">
+            <span class="text-green-400 mr-3 text-3xl">✓</span>
+            No credit card required
+          </div>
+          <div class="flex items-center">
+            <span class="text-green-400 mr-3 text-3xl">✓</span>
+            Cancel anytime
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-gray-900 text-white py-20 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
+          <div class="md:col-span-2">
+            <div
+              class="text-4xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent mb-8"
+            >
+              zoho
+            </div>
+            <p class="text-gray-400 mb-8 text-lg leading-relaxed">
+              Making business software that works for you. Zoho Books is part of
+              the comprehensive Zoho suite of business applications.
+            </p>
+            <div class="flex space-x-6">
+              <a
+                href="#"
+                class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110"
+              >
+                <span class="text-lg">f</span>
+              </a>
+              <a
+                href="#"
+                class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-all duration-300 transform hover:scale-110"
+              >
+                <span class="text-lg">t</span>
+              </a>
+              <a
+                href="#"
+                class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-all duration-300 transform hover:scale-110"
+              >
+                <span class="text-lg">in</span>
+              </a>
+              <a
+                href="#"
+                class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-all duration-300 transform hover:scale-110"
+              >
+                <span class="text-lg">yt</span>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-black mb-8 text-2xl">Products</h4>
+            <ul class="space-y-4 text-gray-400 text-lg">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Books</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Invoice</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Expense</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Inventory</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Subscriptions</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-black mb-8 text-2xl">Resources</h4>
+            <ul class="space-y-4 text-gray-400 text-lg">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Webinars</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Templates</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >API Documentation</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-black mb-8 text-2xl">Support</h4>
+            <ul class="space-y-4 text-gray-400 text-lg">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Training</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Community</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >Partners</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-white transition-colors hover:underline transform hover:translate-x-2 inline-block"
+                  >System Status</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 pt-10 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-6 md:mb-0 text-lg">
+            &copy; 2024 Zoho Corporation Pvt. Ltd. All rights reserved.
+          </p>
+          <div
+            class="flex flex-wrap justify-center space-x-8 text-gray-400 text-lg"
+          >
+            <a
+              href="#"
+              class="hover:text-white transition-colors hover:underline"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="hover:text-white transition-colors hover:underline"
+              >Terms of Service</a
+            >
+            <a
+              href="#"
+              class="hover:text-white transition-colors hover:underline"
+              >Cookie Policy</a
+            >
+            <a
+              href="#"
+              class="hover:text-white transition-colors hover:underline"
+              >Security</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Enhanced page loading animation
+      window.addEventListener("load", function () {
+        const loadingBar = document.getElementById("loadingBar");
+        loadingBar.style.width = "100%";
+        setTimeout(() => {
+          loadingBar.style.opacity = "0";
+          setTimeout(() => {
+            loadingBar.style.display = "none";
+          }, 500);
+        }, 1000);
+
+        // Initialize particles
+        createParticles();
+      });
+
+      // Create floating particles
+      function createParticles() {
+        const container = document.getElementById("particleContainer");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.top = Math.random() * 100 + "%";
+          particle.style.width = Math.random() * 4 + 2 + "px";
+          particle.style.height = particle.style.width;
+          particle.style.animationDelay = Math.random() * 6 + "s";
+          particle.style.animationDuration = Math.random() * 4 + 4 + "s";
+          container.appendChild(particle);
+        }
+      }
+
+      // Enhanced mobile menu functionality
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const closeMobileMenu = document.getElementById("closeMobileMenu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+
+      closeMobileMenu.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+        document.body.style.overflow = "auto";
+      });
+
+      // Enhanced counter animation
+      function animateCounter(
+        elementId,
+        targetValue,
+        suffix = "",
+        duration = 2500
+      ) {
+        const element = document.getElementById(elementId);
+        const increment = targetValue / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= targetValue) {
+            current = targetValue;
+            clearInterval(timer);
+          }
+          element.textContent = Math.floor(current).toLocaleString() + suffix;
+        }, 16);
+      }
+
+      // Enhanced hero dashboard animation
+      function animateHeroDashboard() {
+        animateCounter("revenueCounter", 2450000, "", 2000);
+        setTimeout(
+          () => animateCounter("outstandingCounter", 450000, "", 2000),
+          400
+        );
+        setTimeout(
+          () => animateCounter("expensesCounter", 850000, "", 2000),
+          800
+        );
+
+        setTimeout(() => {
+          document.getElementById("growthBar").style.width = "75%";
+        }, 1200);
+      }
+
+      // Enhanced smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Advanced intersection observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate stats counters
+            if (entry.target.querySelector("#customers")) {
+              animateCounter("customers", 700000, "+");
+              animateCounter("countries", 190, "+");
+              animateCounter("invoices", 50000000, "+");
+              animateCounter("transactions", 1000000000, "+");
+            }
+
+            // Animate hero dashboard
+            if (entry.target.querySelector("#revenueCounter")) {
+              animateHeroDashboard();
+            }
+
+            // Reveal scroll elements
+            const scrollElements =
+              entry.target.querySelectorAll(".scroll-reveal");
+            scrollElements.forEach((element, index) => {
+              setTimeout(() => {
+                element.classList.add("revealed");
+              }, index * 100);
+            });
+          }
+        });
+      }, observerOptions);
+
+      // Enhanced pricing toggle
+      const pricingToggle = document.getElementById("pricingToggle");
+      const monthlyPrices = document.querySelectorAll(".monthly-price");
+      const yearlyPrices = document.querySelectorAll(".yearly-price");
+
+      pricingToggle.addEventListener("change", function () {
+        const toggle = this.nextElementSibling.querySelector("div:last-child");
+        const background =
+          this.nextElementSibling.querySelector("div:first-child");
+
+        if (this.checked) {
+          toggle.style.transform = "translateX(32px)";
+          background.style.backgroundColor = "#667eea";
+          monthlyPrices.forEach((price) => price.classList.add("hidden"));
+          yearlyPrices.forEach((price) => price.classList.remove("hidden"));
+        } else {
+          toggle.style.transform = "translateX(0)";
+          background.style.backgroundColor = "#d1d5db";
+          monthlyPrices.forEach((price) => price.classList.remove("hidden"));
+          yearlyPrices.forEach((price) => price.classList.add("hidden"));
+        }
+      });
+
+      // Enhanced signup modal
+      function createSignupModal() {
+        const modal = document.createElement("div");
+        modal.className =
+          "fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in";
+        modal.innerHTML = `
+                <div class="bg-white p-12 rounded-3xl max-w-lg w-full mx-4 shadow-2xl transform animate-slide-right">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <span class="text-white text-3xl">🚀</span>
+                        </div>
+                        <h3 class="text-4xl font-black text-gray-800 mb-4">Start Your Free Trial</h3>
+                        <p class="text-gray-600 text-lg">Join thousands of businesses using Zoho Books</p>
+                    </div>
+                    <form class="space-y-6" id="signupForm">
+                        <div>
+                            <label for="email" class="block text-lg font-bold text-gray-700 mb-3">Email Address</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="form-input w-full px-6 py-4 border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-blue-500 transition-all text-lg"
+                                   placeholder="Enter your email">
+                        </div>
+                        <div>
+                            <label for="company" class="block text-lg font-bold text-gray-700 mb-3">Company Name</label>
+                            <input type="text" id="company" name="company" required 
+                                   class="form-input w-full px-6 py-4 border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-blue-500 transition-all text-lg"
+                                   placeholder="Enter your company name">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-lg font-bold text-gray-700 mb-3">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required 
+                                   class="form-input w-full px-6 py-4 border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-blue-500 transition-all text-lg"
+                                   placeholder="Enter your phone number">
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="terms" name="terms" required class="mr-4 w-5 h-5">
+                            <label for="terms" class="text-gray-600 text-lg">
+                                I agree to the <a href="#" class="text-blue-600 hover:underline font-semibold">Terms of Service</a> and 
+                                <a href="#" class="text-blue-600 hover:underline font-semibold">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <div class="flex space-x-4 pt-6">
+                            <button type="submit" class="flex-1 btn-primary text-white py-4 rounded-2xl font-black text-xl">
+                                Start Free Trial
+                            </button>
+                            <button type="button" class="flex-1 bg-gray-200 text-gray-800 py-4 rounded-2xl font-black text-xl hover:bg-gray-300 transition-colors" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                    <p class="text-sm text-gray-500 text-center mt-6">
+                        No credit card required • 14-day free trial • Cancel anytime
+                    </p>
+                </div>
+            `;
+
+        document.body.appendChild(modal);
+        document.body.style.overflow = "hidden";
+
+        modal
+          .querySelector("#signupForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const successModal = document.createElement("div");
+            successModal.className =
+              "fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50";
+            successModal.innerHTML = `
+                    <div class="bg-white p-12 rounded-3xl max-w-lg w-full mx-4 text-center shadow-2xl">
+                        <div class="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <span class="text-green-600 text-3xl">✓</span>
+                        </div>
+                        <h3 class="text-3xl font-black text-gray-800 mb-6">Welcome to Zoho Books!</h3>
+                        <p class="text-gray-600 mb-8 text-lg">Your free trial has been activated. Check your email for login details and getting started guide.</p>
+                        <button class="btn-primary text-white px-12 py-4 rounded-2xl font-bold text-xl" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
+                            Get Started
+                        </button>
+                    </div>
+                `;
+
+            modal.remove();
+            document.body.appendChild(successModal);
+
+            setTimeout(() => {
+              successModal.remove();
+              document.body.style.overflow = "auto";
+            }, 5000);
+          });
+      }
+
+      // Video player functions
+      function playDemoVideo(button) {
+        const videoModal = document.createElement("div");
+        videoModal.className =
+          "fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in";
+        videoModal.innerHTML = `
+                <div class="bg-white rounded-3xl max-w-5xl w-full mx-4 overflow-hidden shadow-2xl">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 flex justify-between items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Zoho Books Product Demo</h3>
+                            <p class="text-blue-200">Complete accounting solution overview</p>
+                        </div>
+                        <button class="text-white hover:text-blue-200 text-3xl" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">×</button>
+                    </div>
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center relative">
+                        <div class="text-center text-white">
+                            <div class="w-32 h-32 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
+                                <svg class="w-16 h-16 text-white ml-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-3xl font-bold mb-4">Product Demo Video</h4>
+                            <p class="text-xl text-blue-200 mb-6">See how Zoho Books transforms business accounting</p>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+                                <div class="space-y-4 text-left">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-400 rounded-full mr-4"></div>
+                                        <span class="text-lg">Dashboard overview and key metrics</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-blue-400 rounded-full mr-4"></div>
+                                        <span class="text-lg">Creating and sending professional invoices</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-purple-400 rounded-full mr-4"></div>
+                                        <span class="text-lg">Expense tracking and receipt management</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
+                                        <span class="text-lg">Financial reports and business insights</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 bg-gray-50">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-2xl font-bold text-lg hover:from-blue-700 hover:to-blue-800 transition-all" onclick="createSignupModal(); this.closest('.fixed').remove();">
+                                Start Free Trial After Demo
+                            </button>
+                            <button class="flex-1 bg-gray-200 text-gray-800 py-4 rounded-2xl font-bold text-lg hover:bg-gray-300 transition-colors" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+        document.body.appendChild(videoModal);
+        document.body.style.overflow = "hidden";
+      }
+
+      function playTestimonialVideo(button, companyName) {
+        const videoModal = document.createElement("div");
+        videoModal.className =
+          "fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in";
+        videoModal.innerHTML = `
+                <div class="bg-white rounded-3xl max-w-4xl w-full mx-4 overflow-hidden shadow-2xl">
+                    <div class="bg-gradient-to-r from-gray-800 to-gray-900 p-6 flex justify-between items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Customer Success Story</h3>
+                            <p class="text-gray-300">${companyName}</p>
+                        </div>
+                        <button class="text-white hover:text-gray-300 text-3xl" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">×</button>
+                    </div>
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 via-purple-600 to-green-600 flex items-center justify-center relative">
+                        <div class="text-center text-white">
+                            <div class="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
+                                <svg class="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-3xl font-bold mb-4">${companyName} Success Story</h4>
+                            <p class="text-xl text-blue-200 mb-6">How Zoho Books transformed their business</p>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-xl mx-auto">
+                                <p class="text-lg leading-relaxed">
+                                    "This testimonial video would showcase how ${companyName} successfully implemented Zoho Books 
+                                    to streamline their accounting processes, improve efficiency, and gain better financial insights."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-gray-50">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-2xl font-bold hover:from-blue-700 hover:to-blue-800 transition-all" onclick="createSignupModal(); this.closest('.fixed').remove();">
+                                Start Your Success Story
+                            </button>
+                            <button class="flex-1 bg-gray-200 text-gray-800 py-3 rounded-2xl font-bold hover:bg-gray-300 transition-colors" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+        document.body.appendChild(videoModal);
+        document.body.style.overflow = "hidden";
+      }
+
+      // Enhanced demo modal
+      function createDemoModal() {
+        const modal = document.createElement("div");
+        modal.className =
+          "fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in";
+        modal.innerHTML = `
+                <div class="bg-white p-12 rounded-3xl max-w-3xl w-full mx-4 shadow-2xl">
+                    <div class="text-center mb-8">
+                        <h3 class="text-4xl font-black text-gray-800 mb-6">Watch Zoho Books Demo</h3>
+                        <p class="text-gray-600 text-xl">See how Zoho Books can transform your business accounting</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-12 text-center mb-8">
+                        <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <span class="text-white text-5xl">▶️</span>
+                        </div>
+                        <p class="text-gray-700 text-xl font-semibold">Demo video would play here</p>
+                        <p class="text-gray-500 mt-3 text-lg">Duration: 5 minutes</p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <button class="flex-1 btn-primary text-white py-4 rounded-2xl font-bold text-xl">
+                            Start Free Trial After Demo
+                        </button>
+                        <button class="flex-1 bg-gray-200 text-gray-800 py-4 rounded-2xl font-bold text-xl hover:bg-gray-300 transition-colors" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+
+        document.body.appendChild(modal);
+        document.body.style.overflow = "hidden";
+      }
+
+      // Event listeners for trial buttons
+      document.addEventListener("click", function (e) {
+        if (
+          e.target.textContent.includes("Start Free Trial") ||
+          e.target.textContent.includes("Get Started Free") ||
+          e.target.textContent.includes("Start Your Free Trial")
+        ) {
+          e.preventDefault();
+          createSignupModal();
+        }
+
+        if (
+          e.target.textContent.includes("Watch Demo") ||
+          e.target.textContent.includes("Schedule Demo")
+        ) {
+          e.preventDefault();
+          createDemoModal();
+        }
+      });
+
+      // Enhanced parallax effects
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelectorAll(".floating-element");
+        const speed = 0.3;
+
+        parallax.forEach((element, index) => {
+          const yPos = -(scrolled * speed * (1 + index * 0.1));
+          const rotation = scrolled * 0.1;
+          element.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
+        });
+
+        // Parallax for particles
+        const particles = document.querySelectorAll(".particle");
+        particles.forEach((particle, index) => {
+          const yPos = -(scrolled * 0.2 * (1 + index * 0.05));
+          particle.style.transform = `translateY(${yPos}px)`;
+        });
+      });
+
+      // Initialize observers
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section");
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+      });
+
+      // Enhanced keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          const modals = document.querySelectorAll(".fixed.inset-0");
+          modals.forEach((modal) => {
+            modal.remove();
+            document.body.style.overflow = "auto";
+          });
+
+          if (mobileMenu.classList.contains("active")) {
+            mobileMenu.classList.remove("active");
+            document.body.style.overflow = "auto";
+          }
+        }
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'98f838d322b8c7d4',t:'MTc2MDYyNDY4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

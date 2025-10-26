@@ -8,6 +8,12 @@
     <style>
       body {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       /* Advanced Gradient Backgrounds */
@@ -125,28 +131,68 @@
         left: 100%;
       }
 
-      /* Interactive Dashboard */
-      .hero-dashboard {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+      /* Sophisticated Dropdown */
+      .dropdown {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px) scale(0.95);
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .dropdown-parent:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      /* Pulse Animation for CTAs */
+      .pulse-glow {
+        animation: pulseGlow 2s ease-in-out infinite;
+      }
+
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
+        }
+      }
+
+      /* Scroll Reveal Animation */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stats Animation */
+      .stats-card {
         transition: all 0.5s ease;
+        transform-style: preserve-3d;
       }
 
-      .hero-dashboard:hover {
-        transform: rotateY(5deg) rotateX(5deg);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      .stats-card:hover {
+        transform: rotateY(10deg) translateZ(20px);
       }
 
-      /* Floating Animation System */
-      .floating-elements {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        pointer-events: none;
-      }
-
+      /* Floating Elements */
       .floating-element {
         position: absolute;
         opacity: 0.6;
@@ -171,35 +217,55 @@
         }
       }
 
-      /* Advanced Stats Animation */
-      .stats-container {
-        perspective: 1000px;
+      /* Progress Bar */
+      .progress-bar {
+        background: linear-gradient(90deg, #1a73e8, #34a853);
+        transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
       }
 
-      .stats-card {
-        transition: all 0.5s ease;
-        transform-style: preserve-3d;
+      .progress-bar::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: shimmer 2s ease-in-out infinite;
       }
 
-      .stats-card:hover {
-        transform: rotateY(10deg) translateZ(20px);
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
       }
 
-      .stats-number {
-        font-size: 4rem;
-        font-weight: 900;
-        background: linear-gradient(135deg, #1a73e8, #34a853, #ea4335);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Integration Logos */
+      .integration-logo {
+        filter: grayscale(100%) brightness(0.7);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
       }
 
-      /* Testimonial Cards with 3D Effect */
+      .integration-logo:hover {
+        filter: grayscale(0%) brightness(1);
+        transform: scale(1.1) translateY(-5px);
+      }
+
+      /* Testimonial Cards */
       .testimonial-card {
         transition: all 0.4s ease;
         transform-style: preserve-3d;
-        position: relative;
       }
 
       .testimonial-card:hover {
@@ -207,7 +273,7 @@
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       }
 
-      /* Pricing Cards with Glow Effect */
+      /* Pricing Cards */
       .pricing-card {
         transition: all 0.4s ease;
         position: relative;
@@ -252,148 +318,36 @@
         animation: gradientShift 10s ease infinite;
       }
 
-      /* Interactive Integration Logos */
-      .integration-logo {
-        filter: grayscale(100%) brightness(0.7);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        cursor: pointer;
-        position: relative;
-      }
-
-      .integration-logo::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          45deg,
-          transparent,
-          rgba(102, 126, 234, 0.1),
-          transparent
-        );
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-
-      .integration-logo:hover {
-        filter: grayscale(0%) brightness(1);
-        transform: scale(1.1) translateY(-5px);
-      }
-
-      .integration-logo:hover::before {
-        opacity: 1;
-      }
-
-      /* Advanced Loading Animation */
-      .loading-bar {
-        width: 0%;
-        height: 4px;
-        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
-        background-size: 400% 100%;
-        animation: loadingGradient 2s ease-out, loadingWidth 2s ease-out;
-      }
-
-      @keyframes loadingGradient {
-        0% {
-          background-position: 0% 50%;
-        }
-        100% {
-          background-position: 100% 50%;
-        }
-      }
-
-      @keyframes loadingWidth {
-        0% {
-          width: 0%;
-        }
-        100% {
-          width: 100%;
-        }
-      }
-
-      /* Sophisticated Dropdown */
-      .dropdown {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-20px) scale(0.95);
-        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-
-      .dropdown-parent:hover .dropdown {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0) scale(1);
-      }
-
-      /* Mobile Menu Animation */
-      .mobile-menu {
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-
-      .mobile-menu.active {
-        transform: translateX(0);
-      }
-
-      /* Scroll-triggered Animations */
-      .scroll-reveal {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-
-      .scroll-reveal.revealed {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Interactive Background Particles */
-      .particle {
-        position: absolute;
+      /* Hero Dashboard */
+      .hero-dashboard {
         background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        pointer-events: none;
-        animation: particleFloat 6s ease-in-out infinite;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.5s ease;
       }
 
-      @keyframes particleFloat {
-        0%,
-        100% {
-          transform: translateY(0px) scale(1);
-          opacity: 0.1;
-        }
-        50% {
-          transform: translateY(-100px) scale(1.2);
-          opacity: 0.3;
-        }
+      .hero-dashboard:hover {
+        transform: rotateY(5deg) rotateX(5deg);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
       }
 
-      /* Advanced Form Styling */
-      .form-input {
-        transition: all 0.3s ease;
-        position: relative;
+      /* Stats Number Styling */
+      .stats-number {
+        font-size: 4rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #f472b6, #fb923c, #facc15);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
-      .form-input:focus {
-        transform: scale(1.02);
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      /* Stats Container */
+      .stats-container {
+        perspective: 1000px;
       }
 
-      /* Pulse Animation for CTAs */
-      .pulse-glow {
-        animation: pulseGlow 2s ease-in-out infinite;
-      }
-
-      @keyframes pulseGlow {
-        0%,
-        100% {
-          box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
-        }
-        50% {
-          box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
-        }
-      }
-
-      /* Text Gradient Animation */
+      /* Gradient Text */
       .gradient-text {
         background: linear-gradient(135deg, #1a73e8, #34a853, #ea4335);
         background-size: 200% 200%;
@@ -412,294 +366,316 @@
           background-position: 100% 50%;
         }
       }
-
-      /* Interactive Progress Bars */
-      .progress-bar {
-        background: linear-gradient(90deg, #1a73e8, #34a853);
-        transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .progress-bar::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.3),
-          transparent
-        );
-        animation: shimmer 2s ease-in-out infinite;
-      }
-
-      @keyframes shimmer {
-        0% {
-          transform: translateX(-100%);
-        }
-        100% {
-          transform: translateX(100%);
-        }
-      }
     </style>
   </head>
   <body class="bg-white overflow-x-hidden">
-    <!-- Advanced Loading Bar -->
-    <div class="fixed top-0 left-0 w-full z-50">
-      <div class="loading-bar" id="loadingBar"></div>
-    </div>
-
-    <!-- Floating Particles Background -->
-    <div
-      class="fixed inset-0 pointer-events-none z-0"
-      id="particleContainer"
-    ></div>
-
-    <!-- Enhanced Top Bar -->
-    <div
-      class="bg-gradient-to-r from-gray-50 to-gray-100 text-sm py-3 relative overflow-hidden"
-    >
-      <div class="floating-elements">
-        <div
-          class="floating-element text-blue-300 text-xl"
-          style="left: 5%; top: 10%"
-        >
-          💼
-        </div>
-        <div
-          class="floating-element text-purple-300 text-xl"
-          style="right: 8%; top: 20%"
-        >
-          📊
-        </div>
-        <div
-          class="floating-element text-pink-300 text-lg"
-          style="left: 15%; bottom: 10%"
-        >
-          ✨
-        </div>
-      </div>
-      <div
-        class="max-w-7xl mx-auto px-4 flex justify-between items-center relative z-10"
-      >
-        <div class="flex space-x-8">
-          <div
-            class="flex items-center space-x-2 cursor-pointer hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
-          >
-            <span class="text-lg">🇮🇳</span>
-            <span class="font-medium">India</span>
-            <span
-              class="text-xs transform transition-transform hover:rotate-180"
-              >▼</span
-            >
-          </div>
-          <div
-            class="flex items-center space-x-2 cursor-pointer hover:text-purple-600 transition-all duration-300 transform hover:scale-105"
-          >
-            <span class="font-medium">English</span>
-            <span
-              class="text-xs transform transition-transform hover:rotate-180"
-              >▼</span
-            >
-          </div>
-        </div>
-        <div class="flex space-x-8">
-          <a
-            href="#"
-            class="text-gray-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-105 font-medium"
-            >Support</a
-          >
-          <a
-            href="#"
-            class="text-gray-600 hover:text-purple-600 transition-all duration-300 transform hover:scale-105 font-medium"
-            >Contact</a
-          >
-          <a
-            href="#"
-            class="text-gray-600 hover:text-pink-600 transition-all duration-300 transform hover:scale-105 font-medium"
-            >Training</a
-          >
-        </div>
-      </div>
-    </div>
-
     <!-- Advanced Navigation -->
     <nav
       class="bg-white/90 backdrop-blur-lg shadow-xl sticky top-0 z-40 border-b border-gray-100"
     >
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-between items-center h-20">
-          <div class="flex items-center">
+          <div class="flex items-center space-x-8">
             <div
               class="text-3xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent cursor-pointer hover:scale-110 transition-transform duration-300"
             >
               zolytics
             </div>
+
+            <!-- Products Mega Menu -->
             <div class="dropdown-parent relative group">
-  <a href="#" class="nav-item text-gray-700 px-4 py-3 font-semibold flex items-center text-lg">
-    Products
-    <span class="ml-2 text-sm transform transition-transform group-hover:rotate-180">▼</span>
-  </a>
+              <a
+                href="#"
+                class="nav-item text-gray-700 px-4 py-3 font-semibold flex items-center text-lg"
+              >
+                Products
+                <span
+                  class="ml-2 text-sm transform transition-transform group-hover:rotate-180"
+                  >▼</span
+                >
+              </a>
 
-  <div class="dropdown absolute top-full left-0 bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl p-8 w-96 border border-gray-100">
-    <div class="grid grid-cols-2 gap-6">
+              <div
+                class="dropdown absolute top-full bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl p-8 border border-gray-100"
+                style="left: 0; right: -600px"
+              >
+                <div class="mb-4">
+                  <h3 class="text-xl font-bold text-gray-800 mb-1">
+                    All Products
+                  </h3>
+                  <p class="text-sm text-gray-600">
+                    Comprehensive suite of business solutions
+                  </p>
+                </div>
+                <div class="grid grid-cols-5 gap-4">
+                  <!-- Zolytics Analytics -->
+                  <a
+                    href="https://www.zolytics.com/analytics"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-purple-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-blue-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/analytics.svg"
+                      alt="Zolytics Analytics"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        Analytics
+                      </div>
+                      <div class="text-xs text-gray-600">
+                        Business Intelligence
+                      </div>
+                    </div>
+                  </a>
 
-      <!-- Zolytics Analytics -->
-      <a href="https://www.zolytics.com/analytics" target="_blank" class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 transform hover:scale-105">
-        <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/analytics.svg" alt="Zolytics Analytics" class="w-12 h-12 mr-4 rounded-xl shadow-lg" />
-        <div>
-          <div class="font-bold text-gray-800 text-lg">Zolytics Analytics</div>
-          <div class="text-sm text-gray-600">Business Intelligence</div>
-        </div>
-      </a>
+                  <!-- Zolytics Books -->
+                  <a
+                    href="https://www.zolytics.com/books"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-orange-50 hover:to-red-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-orange-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/books.svg"
+                      alt="Zolytics Books"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        Books
+                      </div>
+                      <div class="text-xs text-gray-600">
+                        Accounting Software
+                      </div>
+                    </div>
+                  </a>
 
-      <!-- Zolytics Books -->
-      <a href="https://www.zolytics.com/books" target="_blank" class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 transition-all duration-300 transform hover:scale-105">
-        <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/books.svg" alt="Zolytics Books" class="w-12 h-12 mr-4 rounded-xl shadow-lg" />
-        <div>
-          <div class="font-bold text-gray-800 text-lg">Zolytics Books</div>
-          <div class="text-sm text-gray-600">Accounting Software</div>
-        </div>
-      </a>
+                  <!-- Zolytics Commerce -->
+                  <a
+                    href="https://www.zolytics.com/commerce"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-green-50 hover:to-emerald-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-green-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/commerce.svg"
+                      alt="Zolytics Commerce"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        Commerce
+                      </div>
+                      <div class="text-xs text-gray-600">
+                        E-commerce Platform
+                      </div>
+                    </div>
+                  </a>
 
-      <!-- Zolytics Commerce -->
-      <a href="https://www.zolytics.com/commerce" target="_blank" class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-300 transform hover:scale-105">
-        <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/commerce.svg" alt="Zolytics Commerce" class="w-12 h-12 mr-4 rounded-xl shadow-lg" />
-        <div>
-          <div class="font-bold text-gray-800 text-lg">Zolytics Commerce</div>
-          <div class="text-sm text-gray-600">E-commerce Platform</div>
-        </div>
-      </a>
+                  <!-- Zolytics CRM -->
+                  <a
+                    href="https://www.zolytics.com/crm"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-purple-50 hover:to-pink-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-purple-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg"
+                      alt="Zolytics CRM"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        CRM
+                      </div>
+                      <div class="text-xs text-gray-600">
+                        Customer Relationship
+                      </div>
+                    </div>
+                  </a>
 
-      <!-- Zolytics CRM -->
-      <a href="https://www.zolytics.com/crm" target="_blank" class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300 transform hover:scale-105">
-        <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zolytics CRM" class="w-12 h-12 mr-4 rounded-xl shadow-lg" />
-        <div>
-          <div class="font-bold text-gray-800 text-lg">Zolytics CRM</div>
-          <div class="text-sm text-gray-600">Customer Relationship</div>
-        </div>
-      </a>
+                  <!-- Zolytics Expense -->
+                  <a
+                    href="https://www.zolytics.com/expense"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-yellow-50 hover:to-orange-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-yellow-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/expense.svg"
+                      alt="Zolytics Expense"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        Expense
+                      </div>
+                      <div class="text-xs text-gray-600">
+                        Expense Management
+                      </div>
+                    </div>
+                  </a>
 
-      <!-- Zolytics Expense -->
-      <a href="https://www.zolytics.com/expense" target="_blank" class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 transition-all duration-300 transform hover:scale-105">
-        <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/expense.svg" alt="Zolytics Expense" class="w-12 h-12 mr-4 rounded-xl shadow-lg" />
-        <div>
-          <div class="font-bold text-gray-800 text-lg">Zolytics Expense</div>
-          <div class="text-sm text-gray-600">Expense Management</div>
-        </div>
-      </a>
+                  <!-- Zolytics Inventory -->
+                  <a
+                    href="https://www.zolytics.com/inventory"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-red-50 hover:to-pink-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-red-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/inventory.svg"
+                      alt="Zolytics Inventory"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        Inventory
+                      </div>
+                      <div class="text-xs text-gray-600">Inventory Control</div>
+                    </div>
+                  </a>
 
-      <!-- Zolytics Inventory -->
-      <a href="https://www.zolytics.com/inventory" target="_blank" class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-300 transform hover:scale-105">
-        <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/inventory.svg" alt="Zolytics Inventory" class="w-12 h-12 mr-4 rounded-xl shadow-lg" />
-        <div>
-          <div class="font-bold text-gray-800 text-lg">Zolytics Inventory</div>
-          <div class="text-sm text-gray-600">Inventory Control</div>
-        </div>
-      </a>
+                  <!-- Zolytics People -->
+                  <a
+                    href="https://www.zolytics.com/people"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-teal-50 hover:to-green-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-teal-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/people.svg"
+                      alt="Zolytics People"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        People
+                      </div>
+                      <div class="text-xs text-gray-600">HR Management</div>
+                    </div>
+                  </a>
 
-      <!-- Zolytics People -->
-      <a href="https://www.zolytics.com/people" target="_blank" class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-teal-50 hover:to-green-50 transition-all duration-300 transform hover:scale-105">
-        <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/people.svg" alt="Zolytics People" class="w-12 h-12 mr-4 rounded-xl shadow-lg" />
-        <div>
-          <div class="font-bold text-gray-800 text-lg">Zolytics People</div>
-          <div class="text-sm text-gray-600">HR Management</div>
-        </div>
-      </a>
+                  <!-- Zolytics Payroll -->
+                  <a
+                    href="https://www.zolytics.com/payroll"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-indigo-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/payroll.svg"
+                      alt="Zolytics Payroll"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        Payroll
+                      </div>
+                      <div class="text-xs text-gray-600">
+                        Payroll Management
+                      </div>
+                    </div>
+                  </a>
 
-      <!-- Zolytics Payroll -->
-      <a href="https://www.zolytics.com/payroll" target="_blank" class="flex items-center p-4 rounded-xl hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 transition-all duration-300 transform hover:scale-105">
-        <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/payroll.svg" alt="Zolytics Payroll" class="w-12 h-12 mr-4 rounded-xl shadow-lg" />
-        <div>
-          <div class="font-bold text-gray-800 text-lg">Zolytics Payroll</div>
-          <div class="text-sm text-gray-600">Payroll Management</div>
-        </div>
-      </a>
+                  <!-- Zolytics Projects -->
+                  <a
+                    href="https://www.zolytics.com/projects"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-cyan-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/projects.svg"
+                      alt="Zolytics Projects"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        Projects
+                      </div>
+                      <div class="text-xs text-gray-600">
+                        Project Management
+                      </div>
+                    </div>
+                  </a>
 
-    </div>
-  </div>
-</div>
+                  <!-- Zolytics Desk -->
+                  <a
+                    href="https://www.zolytics.com/desk"
+                    target="_blank"
+                    class="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-rose-50 hover:to-pink-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-transparent hover:border-rose-200"
+                  >
+                    <img
+                      src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/desk.svg"
+                      alt="Zolytics Desk"
+                      class="w-12 h-12 mb-3 rounded-xl shadow-lg"
+                    />
+                    <div class="text-center">
+                      <div class="font-bold text-gray-800 text-base mb-1">
+                        Desk
+                      </div>
+                      <div class="text-xs text-gray-600">
+                        Help Desk Software
+                      </div>
+                    </div>
+                  </a>
+                </div>
 
+                <div class="mt-6 pt-4 border-t border-gray-200 text-center">
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-base transition-all duration-300 hover:scale-105"
+                  >
+                    View All Products
+                    <svg
+                      class="w-4 h-4 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
 
-<!-- Other nav links in one line -->
-        <a href="client.html" class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg">Client</a>
-        <a href="#" class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg">Certification</a>
-        <a href="#" class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg">Training</a>
-        <a href="#" class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg">Partners</a>
-        <a href="#" class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg">Integration</a>
-      </div>
-
-       <!-- Right Side Buttons -->
-      <div class="flex items-center space-x-4 flex-shrink-0">
-        <a href="#" class="text-gray-700 hover:text-blue-600 font-semibold text-lg transition-all duration-300 transform hover:scale-105">Sign In</a>
-        <button class="btn-primary text-white px-8 py-3 rounded-xl font-bold text-lg pulse-glow">Sign Up Free</button>
-        <button class="lg:hidden text-gray-700 p-3" id="mobileMenuBtn">
-          <div class="w-7 h-7 flex flex-col justify-center space-y-1.5">
-            <div class="w-full h-0.5 bg-current transition-all duration-300"></div>
-            <div class="w-full h-0.5 bg-current transition-all duration-300"></div>
-            <div class="w-full h-0.5 bg-current transition-all duration-300"></div>
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-</nav>
-      <!-- Enhanced Mobile Menu -->
-      <div
-        class="mobile-menu fixed top-0 right-0 w-96 h-full bg-white/95 backdrop-blur-lg shadow-2xl z-50 p-8"
-        id="mobileMenu"
-      >
-        <div class="flex justify-between items-center mb-10">
-          <div
-            class="text-3xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent"
-          >
-            zoho
-          </div>
-          <button
-            class="text-gray-500 text-3xl hover:text-red-500 transition-colors"
-            id="closeMobileMenu"
-          >
-            ×
-          </button>
-        </div>
-        <div class="space-y-6">
-          <a
-            href="#"
-            class="block py-4 text-gray-700 hover:text-blue-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
-            >Products</a
-          >
-          <a
-            href="#pricing"
-            class="block py-4 text-gray-700 hover:text-purple-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
-            >Pricing</a
-          >
-          <a
-            href="#"
-            class="block py-4 text-gray-700 hover:text-pink-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
-            >Resources</a
-          >
-          <a
-            href="#"
-            class="block py-4 text-gray-700 hover:text-green-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
-            >Customers</a
-          >
-          <a
-            href="#"
-            class="block py-4 text-gray-700 hover:text-orange-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
-            >Partners</a
-          >
-          <div class="pt-6 border-t border-gray-200">
+            <!-- Other nav links -->
+            <a
+              href="client.html"
+              class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg"
+              >Client</a
+            >
             <a
               href="#"
-              class="block py-4 text-gray-700 hover:text-blue-600 font-semibold text-xl transition-all duration-300 transform hover:translate-x-2"
+              class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg"
+              >Certification</a
+            >
+            <a
+              href="#"
+              class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg"
+              >Training</a
+            >
+            <a
+              href="#"
+              class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg"
+              >Partners</a
+            >
+            <a
+              href="#"
+              class="nav-item text-gray-700 px-4 py-3 font-semibold text-lg"
+              >Integration</a
+            >
+          </div>
+
+          <!-- Right Side Buttons -->
+          <div class="flex items-center space-x-4 flex-shrink-0">
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-semibold text-lg transition-all duration-300 transform hover:scale-105"
               >Sign In</a
             >
             <button
-              class="btn-primary text-white px-8 py-4 rounded-xl font-bold w-full mt-4 text-lg"
+              class="btn-primary text-white px-8 py-3 rounded-xl font-bold text-lg pulse-glow"
             >
               Sign Up Free
             </button>
@@ -737,18 +713,6 @@
         >
           💰
         </div>
-        <div
-          class="floating-element text-white text-3xl"
-          style="left: 25%; top: 30%"
-        >
-          ✨
-        </div>
-        <div
-          class="floating-element text-white text-4xl"
-          style="right: 30%; top: 40%"
-        >
-          🚀
-        </div>
       </div>
       <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -764,13 +728,11 @@
             <div class="flex flex-col sm:flex-row gap-6 mb-12">
               <button
                 class="btn-primary text-white px-12 py-5 rounded-2xl text-xl font-bold shadow-2xl"
-                id="heroTrialBtn"
               >
                 Start Free Trial
               </button>
               <button
                 class="bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white px-12 py-5 rounded-2xl text-xl font-bold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                id="watchDemoBtn"
               >
                 Watch Demo
               </button>
@@ -868,7 +830,7 @@
                       class="w-full bg-gray-200 rounded-full h-3 overflow-hidden"
                     >
                       <div
-                        class="progress-bar h-3 rounded-full transition-all duration-2000"
+                        class="progress-bar h-3 rounded-full"
                         id="growthBar"
                         style="width: 0%"
                       ></div>
@@ -2106,55 +2068,7 @@
     </footer>
 
     <script>
-      // Enhanced page loading animation
-      window.addEventListener("load", function () {
-        const loadingBar = document.getElementById("loadingBar");
-        loadingBar.style.width = "100%";
-        setTimeout(() => {
-          loadingBar.style.opacity = "0";
-          setTimeout(() => {
-            loadingBar.style.display = "none";
-          }, 500);
-        }, 1000);
-
-        // Initialize particles
-        createParticles();
-      });
-
-      // Create floating particles
-      function createParticles() {
-        const container = document.getElementById("particleContainer");
-        const particleCount = 50;
-
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement("div");
-          particle.className = "particle";
-          particle.style.left = Math.random() * 100 + "%";
-          particle.style.top = Math.random() * 100 + "%";
-          particle.style.width = Math.random() * 4 + 2 + "px";
-          particle.style.height = particle.style.width;
-          particle.style.animationDelay = Math.random() * 6 + "s";
-          particle.style.animationDuration = Math.random() * 4 + 4 + "s";
-          container.appendChild(particle);
-        }
-      }
-
-      // Enhanced mobile menu functionality
-      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-      const mobileMenu = document.getElementById("mobileMenu");
-      const closeMobileMenu = document.getElementById("closeMobileMenu");
-
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.add("active");
-        document.body.style.overflow = "hidden";
-      });
-
-      closeMobileMenu.addEventListener("click", () => {
-        mobileMenu.classList.remove("active");
-        document.body.style.overflow = "auto";
-      });
-
-      // Enhanced counter animation
+      // Animation functions
       function animateCounter(
         elementId,
         targetValue,
@@ -2162,6 +2076,7 @@
         duration = 2500
       ) {
         const element = document.getElementById(elementId);
+        if (!element) return;
         const increment = targetValue / (duration / 16);
         let current = 0;
 
@@ -2175,7 +2090,6 @@
         }, 16);
       }
 
-      // Enhanced hero dashboard animation
       function animateHeroDashboard() {
         animateCounter("revenueCounter", 2450000, "", 2000);
         setTimeout(
@@ -2186,27 +2100,13 @@
           () => animateCounter("expensesCounter", 850000, "", 2000),
           800
         );
-
         setTimeout(() => {
-          document.getElementById("growthBar").style.width = "75%";
+          const growthBar = document.getElementById("growthBar");
+          if (growthBar) growthBar.style.width = "75%";
         }, 1200);
       }
 
-      // Enhanced smooth scrolling
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
-
-      // Advanced intersection observer for scroll animations
+      // Scroll reveal observer
       const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -100px 0px",
@@ -2215,6 +2115,11 @@
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            // Animate hero dashboard
+            if (entry.target.querySelector("#revenueCounter")) {
+              animateHeroDashboard();
+            }
+
             // Animate stats counters
             if (entry.target.querySelector("#customers")) {
               animateCounter("customers", 700000, "+");
@@ -2223,12 +2128,6 @@
               animateCounter("transactions", 1000000000, "+");
             }
 
-            // Animate hero dashboard
-            if (entry.target.querySelector("#revenueCounter")) {
-              animateHeroDashboard();
-            }
-
-            // Reveal scroll elements
             const scrollElements =
               entry.target.querySelectorAll(".scroll-reveal");
             scrollElements.forEach((element, index) => {
@@ -2240,358 +2139,13 @@
         });
       }, observerOptions);
 
-      // Enhanced pricing toggle
-      const pricingToggle = document.getElementById("pricingToggle");
-      const monthlyPrices = document.querySelectorAll(".monthly-price");
-      const yearlyPrices = document.querySelectorAll(".yearly-price");
-
-      pricingToggle.addEventListener("change", function () {
-        const toggle = this.nextElementSibling.querySelector("div:last-child");
-        const background =
-          this.nextElementSibling.querySelector("div:first-child");
-
-        if (this.checked) {
-          toggle.style.transform = "translateX(32px)";
-          background.style.backgroundColor = "#667eea";
-          monthlyPrices.forEach((price) => price.classList.add("hidden"));
-          yearlyPrices.forEach((price) => price.classList.remove("hidden"));
-        } else {
-          toggle.style.transform = "translateX(0)";
-          background.style.backgroundColor = "#d1d5db";
-          monthlyPrices.forEach((price) => price.classList.remove("hidden"));
-          yearlyPrices.forEach((price) => price.classList.add("hidden"));
-        }
-      });
-
-      // Enhanced signup modal
-      function createSignupModal() {
-        const modal = document.createElement("div");
-        modal.className =
-          "fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in";
-        modal.innerHTML = `
-                <div class="bg-white p-12 rounded-3xl max-w-lg w-full mx-4 shadow-2xl transform animate-slide-right">
-                    <div class="text-center mb-8">
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <span class="text-white text-3xl">🚀</span>
-                        </div>
-                        <h3 class="text-4xl font-black text-gray-800 mb-4">Start Your Free Trial</h3>
-                        <p class="text-gray-600 text-lg">Join thousands of businesses using Zoho Books</p>
-                    </div>
-                    <form class="space-y-6" id="signupForm">
-                        <div>
-                            <label for="email" class="block text-lg font-bold text-gray-700 mb-3">Email Address</label>
-                            <input type="email" id="email" name="email" required 
-                                   class="form-input w-full px-6 py-4 border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-blue-500 transition-all text-lg"
-                                   placeholder="Enter your email">
-                        </div>
-                        <div>
-                            <label for="company" class="block text-lg font-bold text-gray-700 mb-3">Company Name</label>
-                            <input type="text" id="company" name="company" required 
-                                   class="form-input w-full px-6 py-4 border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-blue-500 transition-all text-lg"
-                                   placeholder="Enter your company name">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-lg font-bold text-gray-700 mb-3">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required 
-                                   class="form-input w-full px-6 py-4 border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-blue-500 transition-all text-lg"
-                                   placeholder="Enter your phone number">
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="terms" name="terms" required class="mr-4 w-5 h-5">
-                            <label for="terms" class="text-gray-600 text-lg">
-                                I agree to the <a href="#" class="text-blue-600 hover:underline font-semibold">Terms of Service</a> and 
-                                <a href="#" class="text-blue-600 hover:underline font-semibold">Privacy Policy</a>
-                            </label>
-                        </div>
-                        <div class="flex space-x-4 pt-6">
-                            <button type="submit" class="flex-1 btn-primary text-white py-4 rounded-2xl font-black text-xl">
-                                Start Free Trial
-                            </button>
-                            <button type="button" class="flex-1 bg-gray-200 text-gray-800 py-4 rounded-2xl font-black text-xl hover:bg-gray-300 transition-colors" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
-                                Cancel
-                            </button>
-                        </div>
-                    </form>
-                    <p class="text-sm text-gray-500 text-center mt-6">
-                        No credit card required • 14-day free trial • Cancel anytime
-                    </p>
-                </div>
-            `;
-
-        document.body.appendChild(modal);
-        document.body.style.overflow = "hidden";
-
-        modal
-          .querySelector("#signupForm")
-          .addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const successModal = document.createElement("div");
-            successModal.className =
-              "fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50";
-            successModal.innerHTML = `
-                    <div class="bg-white p-12 rounded-3xl max-w-lg w-full mx-4 text-center shadow-2xl">
-                        <div class="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <span class="text-green-600 text-3xl">✓</span>
-                        </div>
-                        <h3 class="text-3xl font-black text-gray-800 mb-6">Welcome to Zoho Books!</h3>
-                        <p class="text-gray-600 mb-8 text-lg">Your free trial has been activated. Check your email for login details and getting started guide.</p>
-                        <button class="btn-primary text-white px-12 py-4 rounded-2xl font-bold text-xl" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
-                            Get Started
-                        </button>
-                    </div>
-                `;
-
-            modal.remove();
-            document.body.appendChild(successModal);
-
-            setTimeout(() => {
-              successModal.remove();
-              document.body.style.overflow = "auto";
-            }, 5000);
-          });
-      }
-
-      // Video player functions
-      function playDemoVideo(button) {
-        const videoModal = document.createElement("div");
-        videoModal.className =
-          "fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in";
-        videoModal.innerHTML = `
-                <div class="bg-white rounded-3xl max-w-5xl w-full mx-4 overflow-hidden shadow-2xl">
-                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 flex justify-between items-center">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">Zoho Books Product Demo</h3>
-                            <p class="text-blue-200">Complete accounting solution overview</p>
-                        </div>
-                        <button class="text-white hover:text-blue-200 text-3xl" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">×</button>
-                    </div>
-                    <div class="aspect-video bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 flex items-center justify-center relative">
-                        <div class="text-center text-white">
-                            <div class="w-32 h-32 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
-                                <svg class="w-16 h-16 text-white ml-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
-                                </svg>
-                            </div>
-                            <h4 class="text-3xl font-bold mb-4">Product Demo Video</h4>
-                            <p class="text-xl text-blue-200 mb-6">See how Zoho Books transforms business accounting</p>
-                            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
-                                <div class="space-y-4 text-left">
-                                    <div class="flex items-center">
-                                        <div class="w-3 h-3 bg-green-400 rounded-full mr-4"></div>
-                                        <span class="text-lg">Dashboard overview and key metrics</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-3 h-3 bg-blue-400 rounded-full mr-4"></div>
-                                        <span class="text-lg">Creating and sending professional invoices</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-3 h-3 bg-purple-400 rounded-full mr-4"></div>
-                                        <span class="text-lg">Expense tracking and receipt management</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
-                                        <span class="text-lg">Financial reports and business insights</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8 bg-gray-50">
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <button class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-2xl font-bold text-lg hover:from-blue-700 hover:to-blue-800 transition-all" onclick="createSignupModal(); this.closest('.fixed').remove();">
-                                Start Free Trial After Demo
-                            </button>
-                            <button class="flex-1 bg-gray-200 text-gray-800 py-4 rounded-2xl font-bold text-lg hover:bg-gray-300 transition-colors" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-        document.body.appendChild(videoModal);
-        document.body.style.overflow = "hidden";
-      }
-
-      function playTestimonialVideo(button, companyName) {
-        const videoModal = document.createElement("div");
-        videoModal.className =
-          "fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in";
-        videoModal.innerHTML = `
-                <div class="bg-white rounded-3xl max-w-4xl w-full mx-4 overflow-hidden shadow-2xl">
-                    <div class="bg-gradient-to-r from-gray-800 to-gray-900 p-6 flex justify-between items-center">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">Customer Success Story</h3>
-                            <p class="text-gray-300">${companyName}</p>
-                        </div>
-                        <button class="text-white hover:text-gray-300 text-3xl" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">×</button>
-                    </div>
-                    <div class="aspect-video bg-gradient-to-br from-blue-600 via-purple-600 to-green-600 flex items-center justify-center relative">
-                        <div class="text-center text-white">
-                            <div class="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
-                                <svg class="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
-                                </svg>
-                            </div>
-                            <h4 class="text-3xl font-bold mb-4">${companyName} Success Story</h4>
-                            <p class="text-xl text-blue-200 mb-6">How Zoho Books transformed their business</p>
-                            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-xl mx-auto">
-                                <p class="text-lg leading-relaxed">
-                                    "This testimonial video would showcase how ${companyName} successfully implemented Zoho Books 
-                                    to streamline their accounting processes, improve efficiency, and gain better financial insights."
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 bg-gray-50">
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <button class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-2xl font-bold hover:from-blue-700 hover:to-blue-800 transition-all" onclick="createSignupModal(); this.closest('.fixed').remove();">
-                                Start Your Success Story
-                            </button>
-                            <button class="flex-1 bg-gray-200 text-gray-800 py-3 rounded-2xl font-bold hover:bg-gray-300 transition-colors" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-        document.body.appendChild(videoModal);
-        document.body.style.overflow = "hidden";
-      }
-
-      // Enhanced demo modal
-      function createDemoModal() {
-        const modal = document.createElement("div");
-        modal.className =
-          "fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in";
-        modal.innerHTML = `
-                <div class="bg-white p-12 rounded-3xl max-w-3xl w-full mx-4 shadow-2xl">
-                    <div class="text-center mb-8">
-                        <h3 class="text-4xl font-black text-gray-800 mb-6">Watch Zoho Books Demo</h3>
-                        <p class="text-gray-600 text-xl">See how Zoho Books can transform your business accounting</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-12 text-center mb-8">
-                        <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <span class="text-white text-5xl">▶️</span>
-                        </div>
-                        <p class="text-gray-700 text-xl font-semibold">Demo video would play here</p>
-                        <p class="text-gray-500 mt-3 text-lg">Duration: 5 minutes</p>
-                    </div>
-                    <div class="flex space-x-6">
-                        <button class="flex-1 btn-primary text-white py-4 rounded-2xl font-bold text-xl">
-                            Start Free Trial After Demo
-                        </button>
-                        <button class="flex-1 bg-gray-200 text-gray-800 py-4 rounded-2xl font-bold text-xl hover:bg-gray-300 transition-colors" onclick="this.closest('.fixed').remove(); document.body.style.overflow = 'auto';">
-                            Close
-                        </button>
-                    </div>
-                </div>
-            `;
-
-        document.body.appendChild(modal);
-        document.body.style.overflow = "hidden";
-      }
-
-      // Event listeners for trial buttons
-      document.addEventListener("click", function (e) {
-        if (
-          e.target.textContent.includes("Start Free Trial") ||
-          e.target.textContent.includes("Get Started Free") ||
-          e.target.textContent.includes("Start Your Free Trial")
-        ) {
-          e.preventDefault();
-          createSignupModal();
-        }
-
-        if (
-          e.target.textContent.includes("Watch Demo") ||
-          e.target.textContent.includes("Schedule Demo")
-        ) {
-          e.preventDefault();
-          createDemoModal();
-        }
-      });
-
-      // Enhanced parallax effects
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const parallax = document.querySelectorAll(".floating-element");
-        const speed = 0.3;
-
-        parallax.forEach((element, index) => {
-          const yPos = -(scrolled * speed * (1 + index * 0.1));
-          const rotation = scrolled * 0.1;
-          element.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
-        });
-
-        // Parallax for particles
-        const particles = document.querySelectorAll(".particle");
-        particles.forEach((particle, index) => {
-          const yPos = -(scrolled * 0.2 * (1 + index * 0.05));
-          particle.style.transform = `translateY(${yPos}px)`;
-        });
-      });
-
-      // Initialize observers
+      // Initialize on page load
       document.addEventListener("DOMContentLoaded", () => {
         const sections = document.querySelectorAll("section");
         sections.forEach((section) => {
           observer.observe(section);
         });
       });
-
-      // Enhanced keyboard navigation
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          const modals = document.querySelectorAll(".fixed.inset-0");
-          modals.forEach((modal) => {
-            modal.remove();
-            document.body.style.overflow = "auto";
-          });
-
-          if (mobileMenu.classList.contains("active")) {
-            mobileMenu.classList.remove("active");
-            document.body.style.overflow = "auto";
-          }
-        }
-      });
-    </script>
-    <script>
-      (function () {
-        function c() {
-          var b = a.contentDocument || a.contentWindow.document;
-          if (b) {
-            var d = b.createElement("script");
-            d.innerHTML =
-              "window.__CF$cv$params={r:'98f838d322b8c7d4',t:'MTc2MDYyNDY4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-            b.getElementsByTagName("head")[0].appendChild(d);
-          }
-        }
-        if (document.body) {
-          var a = document.createElement("iframe");
-          a.height = 1;
-          a.width = 1;
-          a.style.position = "absolute";
-          a.style.top = 0;
-          a.style.left = 0;
-          a.style.border = "none";
-          a.style.visibility = "hidden";
-          document.body.appendChild(a);
-          if ("loading" !== document.readyState) c();
-          else if (window.addEventListener)
-            document.addEventListener("DOMContentLoaded", c);
-          else {
-            var e = document.onreadystatechange || function () {};
-            document.onreadystatechange = function (b) {
-              e(b);
-              "loading" !== document.readyState &&
-                ((document.onreadystatechange = e), c());
-            };
-          }
-        }
-      })();
     </script>
   </body>
 </html>
